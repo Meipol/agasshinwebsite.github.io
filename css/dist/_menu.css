@@ -1,0 +1,88 @@
+.navigation__container {
+  position: absolute;
+  z-index: 3;
+}
+@media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait), only screen and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .navigation__container .navigation {
+    position: fixed;
+    display: inline-flex;
+    flex-wrap: wrap;
+    font-size: var(--font-size--mobile--secondary);
+  }
+  .navigation__container .navigation .navigation__item {
+    margin: 2rem;
+    padding: 1rem 2rem;
+    background: white;
+    border-radius: var(--border-radius);
+  }
+}
+@media only screen and (min-device-width: 813px) and (-webkit-min-device-pixel-ratio: 3), only screen and (min-device-width: 668px) and (-webkit-min-device-pixel-ratio: 2), only screen and (orientation: landscape) {
+  .navigation__container .navigation .highlight {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    color: white;
+    padding: 2px 6px;
+    border-right: 1px dotted white;
+    border-bottom: 1px dotted white;
+  }
+  .navigation__container .navigation #nav-about {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    border-left: 1px dotted white;
+    border-bottom: 1px dotted white;
+    padding: 2px 6px;
+  }
+  .navigation__container .navigation #nav-contact {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-left: 1px dotted white;
+    border-top: 1px dotted white;
+    padding: 2px 6px;
+  }
+  .navigation__container .navigation #nav-patreon {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    border-right: 1px dotted white;
+    border-top: 1px dotted white;
+    padding: 2px 6px;
+  }
+}
+/* footer */
+.insta {
+  position: fixed;
+  bottom: 0;
+  margin: 1rem;
+}
+
+.email-signup {
+  position: fixed;
+  display: none;
+  height: calc(1em * var(--line-height));
+  top: 1rem;
+  right: 40%;
+}
+.email-signup button {
+  color: var(--main-blue);
+  padding: 0 0.3rem;
+  background: none;
+  border: none;
+}
+.email-signup .js-cm-form button[type=submit] {
+  margin-left: calc(0.5 * var(--margin));
+  cursor: pointer;
+  color: var(--main-blue);
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
