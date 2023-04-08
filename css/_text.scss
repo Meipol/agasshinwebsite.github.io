@@ -24,8 +24,6 @@
     margin-left: 0;
   }
 
-
-
   .essay-header {
     margin-bottom: 1rem;
 
@@ -34,6 +32,7 @@
       padding: 1rem 5rem;
       line-height: 4.2rem;
       text-align: center;
+
       @include mobile {
         font-size: 14rem;
         line-height: 10rem;
@@ -41,11 +40,7 @@
       }
     }
   }
-
-
 }
-
-
 
 .essay-body-inner {
   padding: 0 5rem;
@@ -93,11 +88,6 @@
   }
 }
 
-
-
-
-
-
 .image {
   display: none;
   position: fixed;
@@ -108,6 +98,7 @@
 
   img {
     max-width: 100%;
+
     @include mobile {
       display: none;
     }
@@ -117,7 +108,6 @@
     filter: none;
   }
 }
-
 
 /* footnotes */
 
@@ -170,7 +160,7 @@ article {
  * 5. Reset link styles on the number to show it's usable
  */
 [aria-describedby="footnote-label"]::after {
-  content: '['counter(footnotes) ']';
+  content: "[" counter(footnotes) "]";
   /* 1 */
   vertical-align: super;
   /* 2 */
