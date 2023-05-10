@@ -1,57 +1,105 @@
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Cormorant+Infant&family=Cormorant:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+JP:wght@400;500&family=Kosugi+Maru&family=Yuji+Mai&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@600&display=swap');
 
 /* Import fonts locally */
 @font-face {
-  font-family: 'Manege Demo';
-  src: url("/fonts/Manege.woff") format("woff");
-}
-@font-face {
-  font-family: 'Five Years Later Demo';
-  src: url("/fonts/FiveYears.woff") format("woff");
+  font-family: 'Tilda Sans Regular';
+  src: url('/fonts/TildaSans-Regular.woff2') format('woff2'),
+      url('/fonts/TildaSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@import url(//db.onlinewebfonts.com/c/085fbf356d39467a513d85fd828e50af?family=Diagramatika+Text);
+@font-face {
+  font-family: 'CMU Concrete';
+  src: url('/fonts/CMUConcrete-Italic.woff2') format('woff2'),
+      url('/fonts/CMUConcrete-Italic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tilda Sans Light';
+  src: url('/fonts/TildaSans-Light.woff2') format('woff2'),
+      url('/fonts/TildaSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manege';
+  src: url('/fonts/ManegeDemo-Light.woff2') format('woff2'),
+      url('/fonts/ManegeDemo-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IPAMincho';
+  src: url('/fonts/IPAMincho.woff2') format('woff2'),
+      url('/fonts/IPAMincho.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 /* Import mixins and variables */
 @import "mixins";
 @import "variables";
 
-/* Import components */
-@import "cards";
-@import "about";
-@import "text";
-@import "menu";
-
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+    font-size: 1vw;
+  @include mobile {
+    font-size: 4vw;
+  }
+  
+}
 /* Body styles */
 body {
   font-family: var(--font-family);
+  font-weight: lighter;
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: var(--main-blue);
-  background: var(--bg-gradient);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: linear-gradient(-45deg, #f8f4cf, #ffffff, #e6ebf9, #fff2de);
+	background-size: 400% 400%;
+	animation: gradient 35s ease infinite;
+	height: 100vh;
+  @include mobile {
+    background: white;
+  }
 }
 
 /* Links */
 a {
   color: var(--main-blue);
   text-decoration: none;
+  text-shadow: 0 0 3px rgb(209, 179, 73);
   transition: color 0.3s;
+  @include mobile {
+    text-shadow: none;
+  }
+
 }
 
 a:hover {
-  color: white;
+  color: rgb(101, 42, 90);
+  filter: blur(1px);
+  @include mobile {
+    filter: none;
+  }
 }
 
 /* Inputs */
@@ -60,20 +108,36 @@ input {
   border: none;
 }
 
-/* Logo */
-.logo {
-  display: none;
-  position: absolute;
-  img {
-    display:none;
-    max-width: 2vw;
-  }
+/* Background gradient animation */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+strong {
+  font-weight: 300;
+  text-shadow: var(--text-shadow);
 }
 
 /* Mobile */
-#mobile-test{
+#mobile-test {
   display: none;
-  @include mobile{
+
+  @include mobile {
     display: block;
   }
 }
+
+/* Import components */
+@import "cards";
+@import "aboutUs";
+@import "text-fullscreen";
+@import "menu";

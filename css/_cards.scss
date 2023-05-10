@@ -7,57 +7,21 @@
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  top: 10%;
-  height: 80vh;
-  width: 84vw;
-  @include mobile {
-    top: 5%;
-  }
-
+  height: 82vh;
+  width: 94vw;
 
   @include desktop {
     left: 50%;
     transform: translateX(-50%);
+    top: 13%;
   }
 
   @include mobile {
 
-
     grid-template-columns: 1fr 1fr;
-    margin-top: 2rem;
-    height: 90vh;
     width: 100vw;
+    top: 1%;
 
-
-    .symbol-front {
-      position: relative;
-      top: calc(50% - 5rem);
-      font-size: 5rem;
-
-    }
-
-    .text-title {
-      font-family: var(--title-font-family);
-      letter-spacing: var(--letter-spacing);
-      line-height: 1.1rem;
-      font-size: 5rem;
-    }
-
-    .text-quote {
-      margin: 4rem 2rem;
-      font-family: var(--font-family);
-      line-height: 5rem;
-      font-size: 4rem;
-    }
-
-    .text-category {
-      display: none;
-      position: absolute;
-      bottom: 0;
-      margin: 0.5rem;
-      font-size: 5rem;
-      font-family: var(--title-font-family);
-    }
   }
 }
 
@@ -67,8 +31,10 @@
 .flip-card {
   background-color: transparent;
   perspective: 1000px;
-  min-height: 12vw;
+  min-height: 14vw;
   margin: 0.1rem;
+  cursor: pointer;
+  
 
   @include mobile {
     min-height: 30vh;
@@ -79,6 +45,14 @@
 
 .js-tilt-glare {
   border-radius: var(--border-radius);
+}
+
+.unavailable {
+  color: grey !important;
+  .index{
+    display: none;
+  }
+
 }
 
 
@@ -110,7 +84,6 @@
   backface-visibility: hidden;
   border-radius: var(--border-radius);
   color: var(--main-blue);
-
 }
 
 .flip-card-front {
@@ -121,7 +94,14 @@
 
   .symbol-front {
     position: relative;
+    color: white;
     top: calc(50% - 1.4rem);
+    h1{
+      font-family: 'IPAMincho', "Arial Unicode MS", Arial, Helvetica, sans-serif;
+      @include mobile{
+        font-family: 'IPAMincho', "Arial Unicode MS";
+      }
+    }
   }
 }
 
@@ -130,73 +110,93 @@
   transform: rotateY(180deg);
   background: var(--card-back-color);
   box-shadow: var(--card-back-inset-color);
+  
 
   .index {
 
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-    font-size: 0.9rem;
-    font-family: var(--title-font-family);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: white;
+    padding: 0 0.2rem;
+    background: var(--yellow);
+    border-radius: 1rem;
 
     @include mobile {
-      display: none;
+      font-size: 0.5rem;;
     }
 
   }
 
-  .flower-back {
 
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    display: none;
-
-
+  .exp{
+    background: var(--pink);
   }
 
-  .symbol-back {
-    display: none;
-  }
+
+
 
   .text-wrapper {
     display: grid;
     position: relative;
-
-    @include desktop {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    @include mobile {
-      top: 10%;
-    }
-
+    top: 50%;
+    transform: translateY(-50%);
+    
   }
 
   .text-title {
     font-family: var(--title-font-family);
+   
+    line-height: 1.2rem;
+    max-width: 100%;
+    text-transform: uppercase;
+    margin: 0 1rem;
+    
+    @include desktop {
     letter-spacing: var(--letter-spacing);
-    line-height: 1.1rem;
+    }
 
     @include mobile {
-      font-size: var(--font-size--mobile);
-      line-height: 5rem;
+      font-size: 1rem;
+      line-height: 1rem;
+      margin: 0.1rem 1.5rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: normal;
     }
   }
 
   .text-quote {
-    margin: 0.2rem 2rem;
+    margin: 0.2rem 1.5rem;
     font-family: var(--font-family);
-    line-height: 1.1rem;
-    font-size: var(--font-size--secondary);
+    line-height: 1.2rem;
+    font-size: var(--font-size);
 
     @include mobile {
-      margin: 0.2rem 0.2rem;
-      font-size: var(--font-size--mobile);
-      line-height: 5rem;
+      margin: 0 1.5rem;
+      font-size: var(--font-size--mobile--secondary);
+      line-height: 1rem;
+      text-align: center;
     }
   }
 
+  .p-quote{
+    margin-bottom: 0.4rem;;
+  }
+}
 
+.abbriviation{
+  position:fixed;
+  bottom: 0.5rem;
+  color: var(--card-front-color);
+  width: 94vw;
+  font-size: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include mobile{
+    display: none;
+  }
 }

@@ -1,5 +1,6 @@
-console.log("Hello");
+"use strict";
 
+console.log("Hello");
 var isMobile = false;
 
 if ($("#mobile-test").css("display") === "block") {
@@ -7,11 +8,10 @@ if ($("#mobile-test").css("display") === "block") {
 }
 
 console.log(isMobile);
-if (!isMobile) {
 
+if (!isMobile) {
   $(".flip-card").click(function () {
     $(".flip-card").removeClass("flip-card-flipped");
-
     $.each($(this)[0].classList, function (key, value) {
       if (value.indexOf("group-") === 0) {
         console.log("." + value);
@@ -21,17 +21,13 @@ if (!isMobile) {
   });
   $(".flip-card").tilt({
     glare: true,
-    maxGlare: 0.7,
+    maxGlare: 0.7
   });
-  
 } else {
-    $(".flip-card").each(function(i){
-        var mycard = $(this);
-        setTimeout(function(){
-            mycard.addClass("flip-card-flipped");
-        },1000*i)
-    });
-
+  $(".flip-card").each(function (i) {
+    var mycard = $(this);
+    setTimeout(function () {
+      mycard.addClass("flip-card-flipped");
+    }, 1000 * i);
+  });
 }
-
-
